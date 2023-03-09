@@ -11,42 +11,47 @@ function App()
   {
     e.preventDefault()
     setResult((result) => result + Number(inputRef.current.value))
+    inputRef.current.value = null
   }
   
   function minus(e)
   {
     e.preventDefault()
     setResult((result) => result - Number(inputRef.current.value))
+    inputRef.current.value = null
   }
 
   function mul(e)
   {
     e.preventDefault()
     setResult((result) => result * Number(inputRef.current.value))
+    inputRef.current.value = null
   }
 
   function div(e)
   {
     e.preventDefault()
     setResult((result) => result / Number(inputRef.current.value))
+    inputRef.current.value = null
   }
 
   function resetInput(e)
   {
     e.preventDefault()
-    inputRef.current.value = 0
+    inputRef.current.value = null
   }
 
   function resetResult(e)
   {
     e.preventDefault()
-    setResult((prevVal) => prevVal * 0)
+    setResult((prevVal) => prevVal = 0)
   }
 
   return(
     <div className='App'>
       <div>
         <h1>Simple Working Calculator</h1>
+        <p>Remember, these calculations are done keeping in mind that the first input of 0 is already given</p>
       </div>
       <form>
         <p ref={resultRef}>{result}</p>
